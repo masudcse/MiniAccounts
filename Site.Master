@@ -68,7 +68,7 @@
     <!-- Header Section -->
     <div class="text-white py-2 px-3" style="background-color:deepskyblue">
         <div class="d-flex justify-content-between align-items-center">
-            <h1 class="h4 mb-0">My Finance App</h1>
+            <h1 class="h4 mb-0">Neekash</h1>
             <button class="navbar-toggler btn btn-outline-light d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-list"></i>
             </button>
@@ -99,7 +99,7 @@
 
     <!-- Footer Section -->
     <div class="footer text-white text-center py-2">
-        <p>&copy; 2024 My Finance App</p>
+        <p>&copy; 2024 Neekash App</p>
     </div>
 
     <!-- Bootstrap JS -->
