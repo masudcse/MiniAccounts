@@ -53,6 +53,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatewiseExpense.aspx" />
     <Content Include="Site.Master" />
     <Content Include="main.Master" />
     <None Include="Web.Debug.config">
@@ -75,6 +76,13 @@
     </Compile>
     <Compile Include="AddTransaction.aspx.designer.cs">
       <DependentUpon>AddTransaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DatewiseExpense.aspx.cs">
+      <DependentUpon>DatewiseExpense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatewiseExpense.aspx.designer.cs">
+      <DependentUpon>DatewiseExpense.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

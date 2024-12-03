@@ -19,7 +19,7 @@ namespace MiniAccounts
             string password = txtPassword.Text;
 
             // Sample hardcoded credentials
-            if (username == "admin" && password == "password")
+            if (username == "admin" && password == "a")
             {
                 Session["User"] = username;
                 Response.Redirect("Default.aspx");

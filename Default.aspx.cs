@@ -17,6 +17,7 @@ namespace MiniAccounts
             if (!IsPostBack)
             {
                 LoadSummary();
+                BindGrid();
             }
         }
         private void LoadSummary()
@@ -35,6 +36,31 @@ namespace MiniAccounts
                     lblTotalExpense.Text = reader["TotalExpense"].ToString();
                 }
             }
+        }
+        private DataTable GetDailyTransactions()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["NeekashDBConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("GetDailyIncomeExpense", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+        private void BindGrid()
+        {
+            DataTable transactions = GetDailyTransactions();
+            gvDailyTransactions.DataSource = transactions;
+            gvDailyTransactions.DataBind();
         }
     }
 }
