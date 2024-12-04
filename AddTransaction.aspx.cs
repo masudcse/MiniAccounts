@@ -13,7 +13,30 @@ namespace MiniAccounts
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                BindCategories();
+            }
+        }
+        private void BindCategories()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["YourConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT CategoryId, CategoryName FROM Categories";
+                SqlCommand cmd = new SqlCommand(query, conn);
 
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                ddlCategory.DataSource = reader;
+                ddlCategory.DataTextField = "CategoryName"; // Column to display
+                ddlCategory.DataValueField = "CategoryId"; // Column for value
+                ddlCategory.DataBind();
+
+                // Add a default "Select" option
+                ddlCategory.Items.Insert(0, new ListItem("-- Select Category --", ""));
+            }
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {

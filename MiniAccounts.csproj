@@ -53,6 +53,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Category.aspx" />
     <Content Include="DatewiseExpense.aspx" />
     <Content Include="Site.Master" />
     <Content Include="main.Master" />
@@ -76,6 +77,13 @@
     </Compile>
     <Compile Include="AddTransaction.aspx.designer.cs">
       <DependentUpon>AddTransaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
     <Compile Include="DatewiseExpense.aspx.cs">
       <DependentUpon>DatewiseExpense.aspx</DependentUpon>
