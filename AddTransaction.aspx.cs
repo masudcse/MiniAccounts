@@ -20,7 +20,7 @@ namespace MiniAccounts
         }
         private void BindCategories()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["YourConnectionString"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["NeekashDBConnectionString"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "SELECT CategoryId, CategoryName FROM Categories";
@@ -58,25 +58,33 @@ namespace MiniAccounts
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", $"alert('Error: {ex.Message}');", true);
             }
-            
 
-           // Response.Redirect("Default.aspx");
+
+            // Response.Redirect("Default.aspx");
         }
 
         public bool TransactionSave()
         {
-            bool isSuccess=false;
+            bool isSuccess = false;
             string transactionType = ddlTransactionType.SelectedValue;
             decimal amount = Convert.ToDecimal(txtAmount.Text);
             string description = txtDescription.Text;
-            DateTime transactionDate = DateTime.Now;
+            DateTime transactionDate;
+            DateTime.TryParse(txtTransactionDate.Text, out transactionDate);
             try
             {
+                int categoryId = int.Parse(ddlCategory.SelectedValue);
                 string connString = ConfigurationManager.ConnectionStrings["NeekashDBConnectionString"].ConnectionString;
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Transactions (TransactionType, Amount, Description, TransactionDate) VALUES (@TransactionType, @Amount, @Description, @TransactionDate)", conn);
+                    string query = @"
+                     INSERT INTO Transactions (TransactionType, CategoryId, Amount, Description, TransactionDate)
+                     VALUES (@TransactionType, @CategoryId, @Amount, @Description, @TransactionDate)";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
                     cmd.Parameters.AddWithValue("@TransactionType", transactionType);
+                    cmd.Parameters.AddWithValue("@CategoryId", categoryId);
                     cmd.Parameters.AddWithValue("@Amount", amount);
                     cmd.Parameters.AddWithValue("@Description", description);
                     cmd.Parameters.AddWithValue("@TransactionDate", transactionDate);
@@ -86,11 +94,11 @@ namespace MiniAccounts
                 }
                 isSuccess = true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
-           return isSuccess;
+            return isSuccess;
         }
     }
 }

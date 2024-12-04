@@ -8,7 +8,7 @@
     <div class="container mt-0">
         <div class="card shadow">
             <div class="card-header bg-primary text-white text-center">
-                <h4>Add Transaction</h4>
+               <%-- <h6>Add Transaction</h6>--%>
             </div>
             <div class="card-body">
 
