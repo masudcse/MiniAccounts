@@ -42,11 +42,11 @@
 </div>
     <script>
     $(document).ready(function () {
-        $("#<%= txtStartDate.ClientID %>").datepicker({
+        $("#<%= txtStartDate.ClientID %>,#<%= txtEndDate.ClientID %>").datepicker({
             format: "yyyy-mm-dd", // Format as YYYY-MM-DD
             autoclose: true,
             todayHighlight: true
         });
     });
-</script>
+    </script>
 </asp:Content>
