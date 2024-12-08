@@ -32,8 +32,12 @@ namespace MiniAccounts
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    lblTotalIncome.Text = reader["TotalIncome"].ToString();
-                    lblTotalExpense.Text = reader["TotalExpense"].ToString();
+                    decimal totalIncome = decimal.Parse(reader["TotalIncome"].ToString());
+                    decimal totalExpense= decimal.Parse(reader["TotalExpense"].ToString());
+                    decimal balance = totalIncome - totalExpense;
+                    lblTotalIncome.Text = totalIncome.ToString();
+                    lblTotalExpense.Text = totalExpense.ToString();
+                    lblBalance.Text = balance.ToString();
                 }
             }
         }
