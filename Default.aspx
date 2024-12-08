@@ -18,33 +18,46 @@
 
 <div class="container">
     <div class="row">
-        <!-- Total Income Card -->
-        <div class="col-md-6">
-            <div class="card text-white bg-success mb-3">
-                <div class="card-header text-center">
-                    <h4>Total Income</h4>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        $<asp:Label ID="lblTotalIncome" runat="server" Text="0"></asp:Label>
-                    </h5>
-                </div>
+      <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header text-center">
+                <h4>Total Income</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    $<asp:Label ID="lblTotalIncome" runat="server" Text="0"></asp:Label>
+                </h5>
             </div>
         </div>
+    </div>
 
-        <!-- Total Expense Card -->
-        <div class="col-md-6">
-            <div class="card text-white bg-danger mb-3">
-                <div class="card-header text-center">
-                    <h4>Total Expense</h4>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        $<asp:Label ID="lblTotalExpense" runat="server" Text="0"></asp:Label>
-                    </h5>
-                </div>
+    <!-- Total Expense Card -->
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-header text-center">
+                <h4>Total Expense</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    $<asp:Label ID="lblTotalExpense" runat="server" Text="0"></asp:Label>
+                </h5>
             </div>
         </div>
+    </div>
+
+    <!-- Balance Card -->
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header text-center">
+                <h4>Balance</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    $<asp:Label ID="lblBalance" runat="server" Text="0"></asp:Label>
+                </h5>
+            </div>
+        </div>
+    </div>
     </div>
     <div class="container mt-1">
     <h3 class="text-center mb-4">Daily Income & Expense Summary</h3>

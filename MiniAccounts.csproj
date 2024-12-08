@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Category.aspx" />
+    <Content Include="CategoryWiseTransaction.aspx" />
     <Content Include="DatewiseExpense.aspx" />
     <Content Include="Site.Master" />
     <Content Include="main.Master" />
@@ -84,6 +85,13 @@
     </Compile>
     <Compile Include="Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryWiseTransaction.aspx.cs">
+      <DependentUpon>CategoryWiseTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryWiseTransaction.aspx.designer.cs">
+      <DependentUpon>CategoryWiseTransaction.aspx</DependentUpon>
     </Compile>
     <Compile Include="DatewiseExpense.aspx.cs">
       <DependentUpon>DatewiseExpense.aspx</DependentUpon>
